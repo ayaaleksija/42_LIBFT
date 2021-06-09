@@ -1,40 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agondard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/27 11:42:56 by agondard          #+#    #+#             */
-/*   Updated: 2021/06/09 15:35:07 by agondard         ###   ########.fr       */
+/*   Created: 2021/06/08 15:06:58 by agondard          #+#    #+#             */
+/*   Updated: 2021/06/09 14:29:02 by agondard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	i;
-	size_t	j;
-	char	*str;
+	t_list	*element;
 
-	i = 0;
-	j = 0;
-	if (!s)
+	element = (t_list *)malloc(sizeof(t_list));
+	if (!element)
 		return (NULL);
-	if (len > ft_strlen(s) - start)
-		len = ft_strlen(s) - start;
-	if (start > ft_strlen(s))
-		len = 0;
-	str = (char *)malloc(sizeof (*str) * (len + 1));
-	if (!str)
-		return (NULL);
-	while (s[i])
-	{
-		if (i >= start && j < len)
-			str[j++] = s[i];
-		i++;
-	}
-	str[j] = '\0';
-	return (str);
+	element->content = content;
+	element->next = NULL;
+	return (element);
 }

@@ -6,7 +6,7 @@
 /*   By: agondard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 09:19:57 by agondard          #+#    #+#             */
-/*   Updated: 2021/05/27 11:36:37 by agondard         ###   ########.fr       */
+/*   Updated: 2021/06/01 08:25:24 by agondard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	*ft_calloc(size_t cpt, size_t size)
 {
 	void	*ptr;
+
 	if (!cpt || !size)
 	{
 		ptr = malloc(0);

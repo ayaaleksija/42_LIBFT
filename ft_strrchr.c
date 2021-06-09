@@ -6,13 +6,13 @@
 /*   By: agondard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 08:25:53 by agondard          #+#    #+#             */
-/*   Updated: 2021/05/24 15:09:39 by agondard         ###   ########.fr       */
+/*   Updated: 2021/06/09 15:47:37 by agondard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(char *str, int c)
+char	*ft_strrchr(const char *str, int c)
 {
 	int		i;
 	char	csearch;
@@ -22,7 +22,7 @@ char	*ft_strrchr(char *str, int c)
 	while (i >= 0)
 	{
 		if (str[i] == csearch)
-			return (str + i);
+			return ((char *)str + i);
 		i--;
 	}
 	return (NULL);

@@ -6,7 +6,7 @@
 /*   By: agondard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 11:59:19 by agondard          #+#    #+#             */
-/*   Updated: 2021/06/01 10:55:25 by agondard         ###   ########.fr       */
+/*   Updated: 2021/06/03 10:52:32 by agondard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,39 +39,53 @@ size_t	ft_word_len(const char *str, char c)
 	size_t	i;
 
 	i = 0;
-	while (str[i] && str[i] != c)
+	while (*str && *str != c)
+	{
 		i++;
+		str++;
+	}
 	return (i);
 }
 
-char	**ft_split(char const *str, char c)
+char	**ft_free(char **str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free (str[i]);
+		i++;
+	}
+	free (str);
+	return (NULL);
+}
+
+char	**ft_split(char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
 	char	**splited;
-	
+
 	i = 0;
-	if (str == 0)
+	if (s == 0)
 		return (NULL);
-	splited = (char *)malloc(sizeof(char *) * ft_countword(str, c) + 1);
+	splited = (char **)malloc(sizeof(char *) * (ft_countword(s, c) + 1));
 	if (!splited)
 		return (NULL);
-	while (ft_wordcount(str, c))
+	while (ft_countword(s, c))
 	{
-		while (*str && *str == c)
-			str++;
-		splited[i] = (char *)malloc(size of(char) * ft_word_len(str, c) + 1);
+		while (*s && *s == c)
+			s++;
+		splited[i] = (char *)malloc(sizeof(char) * (ft_word_len(s, c) + 1));
 		if (!splited[i])
-			retur (NULL);
+			return (ft_free(splited));
+		j = 0;
+		while (*s != c && *s)
+			splited[i][j++] = *s++;
+		splited[i][j] = 0;
+		i++;
 	}
-
-	
-}
-
-int	main()
-{
-	char str[] = " Alexia est la plus belle   de toute   s ";
-
-	printf("%ld", ft_word_len(str + 1, ' '));
-
+	splited[i] = 0;
+	return (splited);
 }

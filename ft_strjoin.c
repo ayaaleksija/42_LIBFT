@@ -6,7 +6,7 @@
 /*   By: agondard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 08:19:31 by agondard          #+#    #+#             */
-/*   Updated: 2021/05/31 09:49:04 by agondard         ###   ########.fr       */
+/*   Updated: 2021/06/01 08:27:51 by agondard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -17,6 +17,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		lens1;
 	int		lens2;
 	int		i;
+
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
 	lens1 = ft_strlen(s1);
@@ -32,11 +33,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	i = 0;
 	while (s2[i])
-	{
-		str[lens1] = s2[i];
-		lens1++;
-		i++;
-	}
+		str[lens1++] = s2[i++];
 	str[lens1] = '\0';
 	return (str);
 }

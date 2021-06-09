@@ -6,15 +6,15 @@
 /*   By: agondard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 15:14:16 by agondard          #+#    #+#             */
-/*   Updated: 2021/05/25 09:58:32 by agondard         ###   ########.fr       */
+/*   Updated: 2021/06/09 13:19:05 by agondard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
+size_t	ft_strlcpy(char *dest, const char *src, unsigned int size)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
 	if (!dest || !src)
@@ -32,5 +32,3 @@ unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
 		i++;
 	return (i);
 }
-
-
